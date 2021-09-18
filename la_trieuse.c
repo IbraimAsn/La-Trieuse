@@ -130,23 +130,22 @@ void displays_array(int *arr, int length_arr)
 
 int main(int argc, char *argv[])
 {
-    int length_arr = argc - 1;
-    if(error_handling_1(length_arr) == 1)
+    if(error_handling_1(argc-1) == 1)
     {
         printf("error : wrong nbr of arguments\n");
         return 1; 
     }
-    int *arg_lengths = malloc(sizeof(int)*(length_arr));
+    int *arg_lengths = malloc(sizeof(int)*(argc-1));
     if(error_handling_2(argc,argv,arg_lengths) != 0)
     {
         printf("error : character representing anything other than an int found\n");
         return 2;
     }
-    int *arg_values = malloc(sizeof(int)*(length_arr));
+    int *arg_values = malloc(sizeof(int)*(argc-1));
     assigns_arg_values_in_array(argv,argc,arg_lengths,arg_values);
-    merge_sort(arg_values,0,length_arr-1);
-    displays_array(arg_values,length_arr);
-    printf("\n%d\n",length_arr);
+    merge_sort(arg_values,0,argc-2);
+    displays_array(arg_values,argc-1);
+    printf("\n%d\n",argc-1);
     free(arg_lengths); 
     free(arg_values);
     return 0; 
