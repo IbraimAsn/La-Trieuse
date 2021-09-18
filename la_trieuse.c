@@ -145,7 +145,6 @@ int main(int argc, char *argv[])
     assigns_arg_values_in_array(argv,argc,arg_lengths,arg_values);
     merge_sort(arg_values,0,argc-2);
     displays_array(arg_values,argc-1);
-    printf("\n%d\n",argc-1);
     free(arg_lengths); 
     free(arg_values);
     return 0; 
